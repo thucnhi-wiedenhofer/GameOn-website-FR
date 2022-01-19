@@ -427,7 +427,6 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -471,26 +470,30 @@ input[data-error]::after {
 .btn-signup {
   outline: none;
   text-transform: capitalize;
-  font-size: 1.3rem;
-  padding: 15px 23px;
+  font-size: 1.5rem;
+  padding: 12px 36px;
   margin: 0;
   margin-top: 59px;
+  font-family: var(--font-default);
 }
 .hero-img {
   grid-column: span 8;
+  width: 730px;
+  height: 657px;
 }
 .hero-img img {
   width: 100%;
   height: 100%;
   display: block;
   padding: 0;
+  object-fit: cover;
 }
 .copyrights {
   color: #fe142f;
   padding: 0;
+  font-family: Roboto;
   font-size: 1rem;
   margin: 60px 0 30px;
-  font-weight: bolder;
 }
 .hero-section > .btn-signup {
   display: none;
@@ -500,6 +503,21 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
+@media screen and (max-width: 1000px) {
+  .hero-content {
+    min-width: 280px;
+  }
+  .hero-headline {
+    font-size: 4rem;
+    white-space: nowrap;
+  }
+  .btn-signup {
+    font-size: 1rem;
+    margin: 2rem;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
@@ -517,12 +535,15 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
     white-space: normal;
   }
   .hero-text {
     width: unset;
     font-size: 1.5rem;
+  }
+  .hero-img {
+    width: auto;
+    height: auto;
   }
   .hero-img img {
     border-radius: 10px;
@@ -531,11 +552,13 @@ footer {
   .hero-section > .btn-signup {
     display: block;
     margin: 32px auto 10px;
-    padding: 12px 35px;
+    padding: 7px 36px;
+    font-size: 0.9rem;
   }
   .copyrights {
-    margin-top: 50px;
+    margin-top: 10px;
     text-align: center;
+    font-size: 0.65rem;
   }
 }
 
@@ -546,5 +569,21 @@ footer {
   }
   to {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 100%;
+    padding: 0rem;
+  }
+  .hero-headline {
+    font-size: 2.3rem;
+    font-weight: 500;
+  }
+  .hero-text {
+    font-size: 0.8rem;
   }
 }

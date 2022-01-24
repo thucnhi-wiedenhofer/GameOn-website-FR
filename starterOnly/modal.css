@@ -112,7 +112,7 @@ img {
   img {
     padding-top: 1.2rem;
     padding-left: 0.7rem;
-    width: 103px;
+    width: 131px;
     height: auto;
   }
   .topnav a {
@@ -121,7 +121,6 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: 0px;
   }
 }
 
@@ -258,6 +257,7 @@ input[data-error]::after {
 .checkbox2-label {
   position: relative;
   margin-left: 36px;
+  font-family: Roboto;
   font-size: 12px;
   font-weight: normal;
 }
@@ -355,6 +355,7 @@ input[data-error]::after {
   cursor: pointer;
   border: 0;
 }
+
 /* custom select styles */
 .custom-select {
   position: relative;
@@ -368,6 +369,23 @@ input[data-error]::after {
 }
 .select-selected {
   background-color: #fff;
+}
+
+/* CSS modal form for mobile */
+@media screen and (max-width: 540px) {
+  .bground {
+    top: 60px;
+  }
+  .content {
+    border-radius: 10px 10px 0 0;
+  }
+  .modal-body {
+    padding: 15px 6%;
+  }
+  .checkbox-label,
+  .checkbox2-label {
+    margin-left: 30px;
+  }
 }
 
 /* Style the arrow inside the select element: */

@@ -381,7 +381,8 @@ input[data-error]::after {
 /* CSS modal form for mobile */
 @media screen and (max-width: 540px) {
   .bground {
-    top: 60px;
+    top: 50px;
+    background-color: transparent;
   }
   .content {
     border-radius: 10px 10px 0 0;

@@ -39,3 +39,15 @@ function closeForm() {
 //  modalThanks.style.display = "block";
 //  modalbg.style.display = "none";
 //}
+
+//regex verify if this is an email
+function isEmail(email) {
+  return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+    email
+  );
+}
+
+//regex verify if only alphabet
+function isOnlyAlphabet(texte) {
+  return /^[a-zA-Z]*$/.test(texte);
+}

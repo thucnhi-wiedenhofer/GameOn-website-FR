@@ -12,6 +12,8 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeModal = document.querySelector(".close");
+//const submit = document.querySelector(".btn-submit");
+//const modalThanks = document.getElementById("#thanks");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -28,3 +30,12 @@ closeModal.addEventListener("click", closeForm);
 function closeForm() {
   modalbg.style.display = "none";
 }
+
+// submit registration form
+//submit.addEventListener("click", registration);
+
+//Modal thanks for registration open
+//function registration() {
+//  modalThanks.style.display = "block";
+//  modalbg.style.display = "none";
+//}

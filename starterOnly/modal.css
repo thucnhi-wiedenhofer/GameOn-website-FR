@@ -203,10 +203,14 @@ main {
   color: #fff;
   padding-top: 10px;
 }
-
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 label {
@@ -354,6 +358,9 @@ input[data-error]::after {
   color: #fff;
   cursor: pointer;
   border: 0;
+}
+.end {
+  justify-content: end;
 }
 
 /* custom select styles */

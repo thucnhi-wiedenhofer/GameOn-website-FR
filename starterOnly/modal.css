@@ -212,7 +212,7 @@ main {
 
 label {
   font-family: var(--font-default);
-  font-size: 17px;
+  font-size: 14px;
   font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
@@ -227,7 +227,7 @@ input {
   padding: 8px;
   width: 100%;
   border-radius: 8px;
-  font-size: 20px;
+  font-size: 18px;
   height: 48px;
 }
 .formData[data-error]::after {
@@ -349,7 +349,7 @@ input[data-error]::after {
   display: block;
   margin: 0 auto;
   border-radius: 7px;
-  font-size: 1rem;
+  font-size: 14px;
   padding: 12px 82px;
   color: #fff;
   cursor: pointer;
@@ -424,7 +424,7 @@ input[data-error]::after {
 /* custom select end */
 .text-label {
   font-weight: normal;
-  font-size: 16px;
+  font-size: 14px;
 }
 .hero-section {
   border-radius: 10px;

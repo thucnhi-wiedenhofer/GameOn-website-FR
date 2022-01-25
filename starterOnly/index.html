@@ -57,22 +57,10 @@
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="event.preventDefault();validate();"
-            ><!--<div
-            class="formData"
-            data-error="Veuillez entrer 2 caractères alphabétiques pour le prénom."
-            data-error-visible="false"
-            >
-            <label for="first">Prénom</label><br>
-            <input
-              class="text-control"
-              type="text"
-              id="first"
-              name="first"
-             
-            /><br>*/-->
+              onsubmit="event.preventDefault();validate();">
+            
               <div
-                class="formData" data-error="Veuillez entrer 2 caractères alphabétiques minimum pour le prénom."
+                class="formData" pattern="[A-Z][A-Za-z' -]+" minlength="2" data-error="Veuillez entrer 2 caractères alphabétiques minimum."
                 data-error-visible="false">
                 <label for="first">Prénom</label><br>
                 <input
@@ -84,7 +72,7 @@
                 /><br>
               </div>
               <div
-                class="formData" data-error="Veuillez entrer 2 caractères alphabétiques minimum pour le nom."
+                class="formData" pattern="[A-Z][A-Za-z' -]+" minlength="2" data-error="Veuillez entrer 2 caractères alphabétiques minimum."
                 data-error-visible="false">
                 <label for="last">Nom</label><br>
                 <input
@@ -120,7 +108,7 @@
                 class="formData" data-error="Veuillez entrer une valeur numérique."
                 data-error-visible="false">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <input type="number" class="text-control" id="quantity" name="quantity" value="0" min="0" max="99">
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
@@ -217,8 +205,7 @@
               </div>
               <input
                 class="btn-submit"
-                type="submit"
-                class="button"
+                type="submit"               
                 value="C'est parti"
               />
             </form>
@@ -228,11 +215,11 @@
       <!--End of Modal form-->
 
       <!--start of Modal thanks-->
-      <div id="thanks" class="bground">
+      <div class="bground thanks">
         <div class="content">
           <span class="close"></span>
-          <div class="modal-body center">
-            <span class="hero-headline">Merci pour votre inscription</span>
+          <div class="modal-body">
+            <span class="hero-headline center">Merci pour<br>votre inscription</span>
             <input
                 class="btn-submit end"
                 type="submit"

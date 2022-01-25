@@ -12,8 +12,8 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeModal = document.querySelector(".close");
-//const submit = document.querySelector(".btn-submit");
-//const modalThanks = document.getElementById("#thanks");
+const submit = document.querySelector(".btn-submit");
+const modalThanks = document.querySelector(".thanks");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -29,25 +29,43 @@ closeModal.addEventListener("click", closeForm);
 //Close modal form
 function closeForm() {
   modalbg.style.display = "none";
+  modalbg.style.display = "none";
 }
 
 // submit registration form
-//submit.addEventListener("click", registration);
+submit.addEventListener("click", registration);
 
 //Modal thanks for registration open
-//function registration() {
-//  modalThanks.style.display = "block";
-//  modalbg.style.display = "none";
-//}
-
-//regex verify if this is an email
-function isEmail(email) {
-  return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-    email
-  );
+function registration() {
+  modalThanks.style.display = "block";
+  modalbg.style.display = "none";
 }
 
-//regex verify if only alphabet
-function isOnlyAlphabet(texte) {
-  return /^[a-zA-Z]*$/.test(texte);
+//Validation form: when click on submit button, the form is validate if no data error on input
+const inputFirst = document.getElementById("first");
+const inputLast = document.getElementById("last");
+const inputEmail = document.getElementById("email");
+const inputBirthdate = document.getElementById("birthdate");
+const inputQuantity = document.getElementById("quantity");
+const inputLocation = document.getElementById("location");
+const inputAgreement = document.getElementById("checkbox1");
+const input = document.getElementsByName("input");
+
+function validate() {
+  //name validation
+  for (let i = 0; i < 6; i++) {
+    if (!input.value) {
+      formData[i].setAttribute("data-error-visible", "true");
+      return false;
+    } else {
+      formData[i].setAttribute("data-error-visible", "false");
+    }
+  }
+  //regex verify if this is an email
+  /* function isEmail(email) {
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+      email
+    );
+  }*/
+  registration();
 }

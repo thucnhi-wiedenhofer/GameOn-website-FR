@@ -178,7 +178,8 @@ main {
   font-size: 16px;
 }
 
-.bground {
+.bground,
+.thanks {
   display: none;
   position: fixed;
   z-index: 1;
@@ -194,6 +195,7 @@ main {
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
+  height: 851px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #232323;
@@ -209,8 +211,12 @@ main {
 }
 .center {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  text-align: center;
+}
+.end {
+  float: end;
 }
 
 label {
@@ -233,6 +239,8 @@ input {
   font-size: 18px;
   height: 48px;
 }
+
+/* Message error for form validation */
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
@@ -351,7 +359,7 @@ input[data-error]::after {
 .btn-signup {
   background: #fe142f;
   display: block;
-  margin: 0 auto;
+  margin: 20px auto;
   border-radius: 7px;
   font-size: 14px;
   padding: 12px 82px;
@@ -504,8 +512,6 @@ input[data-error]::after {
 }
 .hero-img {
   grid-column: span 8;
-  width: 730px;
-  height: 657px;
 }
 .hero-img img {
   width: 100%;

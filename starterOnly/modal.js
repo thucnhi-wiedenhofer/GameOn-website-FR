@@ -11,7 +11,8 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-const closeModal = document.querySelector(".close");
+const closeModal = document.querySelectorAll(".close");
+const closeBtn = document.querySelector(".end");
 const submit = document.querySelector(".btn-submit");
 const modalThanks = document.querySelector(".thanks");
 
@@ -23,16 +24,21 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-// close modal form
-closeModal.addEventListener("click", closeForm);
+// close modal when you click on span close
+closeModal.forEach((btnClose) =>
+  btnClose.addEventListener("click", closeWindow)
+);
 
-//Close modal form
-function closeForm() {
+// close modal when you click on button close
+closeBtn.addEventListener("click", closeWindow);
+
+//Close modal
+function closeWindow() {
   modalbg.style.display = "none";
-  modalbg.style.display = "none";
+  modalThanks.style.display = "none";
 }
 
-// submit registration form
+// When registration form is submited
 submit.addEventListener("click", registration);
 
 //Modal thanks for registration open

@@ -60,7 +60,8 @@
               onsubmit="event.preventDefault();validate();">
             
               <div
-                class="formData" pattern="[A-Z][A-Za-z' -]+" minlength="2" data-error="Veuillez entrer 2 caractères alphabétiques minimum."
+                class="formData" pattern="[A-Z][A-Za-z' -]+" minlength="2" 
+                data-error="Veuillez entrer 2 caractères alphabétiques minimum."
                 data-error-visible="false">
                 <label for="first">Prénom</label><br>
                 <input
@@ -72,7 +73,8 @@
                 /><br>
               </div>
               <div
-                class="formData" pattern="[A-Z][A-Za-z' -]+" minlength="2" data-error="Veuillez entrer 2 caractères alphabétiques minimum."
+                class="formData" pattern="[A-Z][A-Za-z' -]+" minlength="2" 
+                data-error="Veuillez entrer 2 caractères alphabétiques minimum."
                 data-error-visible="false">
                 <label for="last">Nom</label><br>
                 <input
@@ -130,7 +132,7 @@
                   type="radio"
                   id="location2"
                   name="location"
-                  value="San Francisco"
+                  value="San Francisco"                  
                 />
                 <label class="checkbox-label" for="location2">
                   <span class="checkbox-icon"></span>
@@ -183,15 +185,15 @@
               </div>
 
               <div
-                class="formData" data-error="Les conditions d'utilisations ne sont pas accepter."
+                class="formData"
+                data-error="Vous devez accepter les termes et conditions."
                 data-error-visible="false">
                 <input
                   class="checkbox-input"
                   type="checkbox"
                   id="checkbox1"
-                  checked
                 />
-                <label class="checkbox2-label" for="checkbox1" required>
+                <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>

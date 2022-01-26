@@ -53,20 +53,19 @@ const inputLast = document.getElementById("last");
 const inputEmail = document.getElementById("email");
 const inputBirthdate = document.getElementById("birthdate");
 const inputQuantity = document.getElementById("quantity");
-const inputLocation = document.getElementById("location");
+
 const inputAgreement = document.getElementById("checkbox1");
 const input = document.getElementsByName("input");
 
 function validate() {
-  //name validation
-  for (let i = 0; i < 6; i++) {
-    if (!input.value) {
-      formData[i].setAttribute("data-error-visible", "true");
-      return false;
-    } else {
-      formData[i].setAttribute("data-error-visible", "false");
-    }
+  //verify if one of location checkboxes was checked
+  const checkLocation = new FormData(document.querySelector("form"));
+  if (!checkLocation.has("location")) {
+    formData[5].setAttribute("data-error-visible", "true");
+  } else {
+    formData[5].setAttribute("data-error-visible", "false");
   }
+
   //regex verify if this is an email
   /* function isEmail(email) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(

@@ -54,16 +54,59 @@ const inputEmail = document.getElementById("email");
 const inputBirthdate = document.getElementById("birthdate");
 const inputQuantity = document.getElementById("quantity");
 
-const inputAgreement = document.getElementById("checkbox1");
-const input = document.getElementsByName("input");
+//regex to check texte is only alphabet
+function isOnlyAlphabet(texte) {
+  return /^[a-zA-Z]*$/.test(texte);
+}
 
 function validate() {
-  //verify if one of location checkboxes was checked
-  const checkLocation = new FormData(document.querySelector("form"));
-  if (!checkLocation.has("location")) {
+  const data = new FormData(document.querySelector("form"));
+
+  //verify if firstname has min 2 characters and no numeric value
+  if (inputFirst.value.length < 2 && !isOnlyAlphabet(inputFirst.value)) {
+    formData[0].setAttribute("data-error-visible", "true");
+    return false;
+  } else {
+    formData[0].setAttribute("data-error-visible", "false");
+  }
+  //verify if lastname has min 2 characters and no numeric value
+  if (inputLast.value.length < 2 && !isOnlyAlphabet(inputLast.value)) {
+    formData[1].setAttribute("data-error-visible", "true");
+    return false;
+  } else {
+    formData[1].setAttribute("data-error-visible", "false");
+  }
+
+  //verify if email field is not empty
+  if (inputEmail.value === "") {
+    formData[2].setAttribute("data-error-visible", "true");
+    return false;
+  } else {
+    formData[2].setAttribute("data-error-visible", "false");
+  }
+
+  //verify if quantity field is not empty
+  if (inputQuantity.value === "") {
+    formData[4].setAttribute("data-error-visible", "true");
+    return false;
+  } else {
+    formData[4].setAttribute("data-error-visible", "false");
+  }
+
+  //verify if all attributes name=location of checkboxes was checked
+  if (!data.has("location")) {
     formData[5].setAttribute("data-error-visible", "true");
+    return false;
   } else {
     formData[5].setAttribute("data-error-visible", "false");
+  }
+
+  //verify if attribute name=checkbox1 was checked
+  if (!data.has("checkbox1")) {
+    formData[6].setAttribute("data-error-visible", "true");
+    return false;
+  } else {
+    formData[6].setAttribute("data-error-visible", "false");
   }
 
   //regex verify if this is an email

@@ -60,7 +60,7 @@
               onsubmit="event.preventDefault();validate();">
             
               <div
-                class="formData" pattern="[A-Z][A-Za-z' -]+" minlength="2" 
+                class="formData" 
                 data-error="Veuillez entrer 2 caractères alphabétiques minimum."
                 data-error-visible="false">
                 <label for="first">Prénom</label><br>
@@ -69,11 +69,12 @@
                   type="text"
                   id="first"
                   name="first"
+                  pattern="[A-Za-z' -]+"
                   minlength="2"
                 /><br>
               </div>
               <div
-                class="formData" pattern="[A-Z][A-Za-z' -]+" minlength="2" 
+                class="formData"
                 data-error="Veuillez entrer 2 caractères alphabétiques minimum."
                 data-error-visible="false">
                 <label for="last">Nom</label><br>
@@ -82,10 +83,12 @@
                   type="text"
                   id="last"
                   name="last"
+                  pattern="[A-Za-z' -]+"
+                  minlength="2"
                 /><br>
               </div>
               <div
-                class="formData" data-error="Email non valide. ex:email@gmail.com"
+                class="formData" data-error="Veuillez entrer un email valide."
                 data-error-visible="false">
                 <label for="email">E-mail</label><br>
                 <input
@@ -192,6 +195,7 @@
                   class="checkbox-input"
                   type="checkbox"
                   id="checkbox1"
+                  name="checkbox1"
                 />
                 <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>

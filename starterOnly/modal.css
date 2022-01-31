@@ -408,6 +408,7 @@ input[data-error]::after {
   }
   .end {
     left: 22%;
+    bottom: 20%;
   }
 
   .checkbox-label,

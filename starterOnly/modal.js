@@ -40,6 +40,7 @@ function closeWindow() {
 
 //Modal thanks for registration open
 function registration() {
+  input.reset();
   modalThanks.style.display = "block";
   modalbg.style.display = "none";
 }
@@ -54,7 +55,6 @@ function validName(text) {
 //********Check firstname field******
 input.first.addEventListener("input", function () {
   validName(this);
-  console.log(validName(input.first.value));
 
   if (!validName(input.first.value)) {
     formData[0].setAttribute("data-error-visible", "true");
@@ -68,7 +68,6 @@ input.first.addEventListener("input", function () {
 //********Check lastname field******
 input.last.addEventListener("input", function () {
   validName(this);
-  console.log(validName(input.last.value));
 
   if (!validName(input.last.value)) {
     formData[1].setAttribute("data-error-visible", "true");
@@ -82,7 +81,7 @@ input.last.addEventListener("input", function () {
 //********Check email field******
 input.email.addEventListener("input", function () {
   validEmail(this);
-  console.log(validEmail(input.email.value));
+
   //verify if email field is not empty
   if (input.email.value === "") {
     formData[2].setAttribute("data-error", "le champs est vide");
@@ -108,14 +107,9 @@ function validEmail(email) {
 //********Check birthdate field******
 input.birthdate.addEventListener("change", function () {
   validBirthdate(this);
-  console.log(validBirthdate(input.birthdate.value));
-  //verify if birthdate field is not empty
-  if (input.birthdate.value === "jj/mm/aaaa") {
-    formData[3].setAttribute("data-error", "le champs est vide");
-    formData[3].setAttribute("data-error-visible", "true");
-    return false;
-    //verify if birthdate is passed
-  } else if (!validBirthdate(input.birthdate.value)) {
+
+  //verify if birthdate is passed
+  if (!validBirthdate(input.birthdate.value)) {
     formData[3].setAttribute("data-error-visible", "true");
     return false;
   } else {
@@ -145,9 +139,13 @@ function validate() {
     //check if term and condition was checked
     input.checkbox1.checked
   ) {
-    //Registration is valid and thanks modal open
+    //Registration is valid, function registration reset form, close form modal and thanks modal open
     registration();
   } else {
-    alert("veuillez renseigner tous les champs");
+    formData[6].setAttribute(
+      "data-error",
+      "Veuillez renseigner tous les champs et accepter les conditions d'utilisation."
+    );
+    formData[6].setAttribute("data-error-visible", "true");
   }
 }

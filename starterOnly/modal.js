@@ -38,12 +38,14 @@ function closeWindow() {
   modalThanks.style.display = "none";
 }
 
-//Modal thanks for registration open
+//when registration is valid, function reset form, close form modal and thanks modal open
 function registration() {
   input.reset();
   modalThanks.style.display = "block";
   modalbg.style.display = "none";
 }
+
+//********Validation form for registration******
 
 let input = document.querySelector("form");
 

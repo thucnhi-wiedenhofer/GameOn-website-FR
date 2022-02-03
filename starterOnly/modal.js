@@ -56,8 +56,6 @@ function validName(text) {
 
 //********Check firstname field******
 input.first.addEventListener("input", function () {
-  validName(this);
-
   if (!validName(input.first.value)) {
     formData[0].setAttribute("data-error-visible", "true");
     return false;
@@ -69,8 +67,6 @@ input.first.addEventListener("input", function () {
 
 //********Check lastname field******
 input.last.addEventListener("input", function () {
-  validName(this);
-
   if (!validName(input.last.value)) {
     formData[1].setAttribute("data-error-visible", "true");
     return false;
@@ -82,8 +78,6 @@ input.last.addEventListener("input", function () {
 
 //********Check email field******
 input.email.addEventListener("input", function () {
-  validEmail(this);
-
   //verify if email field is not empty
   if (input.email.value === "") {
     formData[2].setAttribute("data-error", "le champs est vide");
@@ -108,8 +102,6 @@ function validEmail(email) {
 
 //********Check birthdate field******
 input.birthdate.addEventListener("change", function () {
-  validBirthdate(this);
-
   //verify if birthdate is passed
   if (!validBirthdate(input.birthdate.value)) {
     formData[3].setAttribute("data-error-visible", "true");
@@ -129,25 +121,47 @@ function validBirthdate(birthdate) {
   }
 }
 
+//********Check quantity field******
+input.quantity.addEventListener("input", function () {
+  //verify if quantity field is not empty
+  if (input.quantity.value === "") {
+    formData[4].setAttribute("data-error-visible", "true");
+    return false;
+  } else {
+    formData[4].setAttribute("data-error-visible", "false");
+    return true;
+  }
+});
+
 //********Function when click on button "c'est parti!"******
 function validate() {
+  let data = new FormData(document.querySelector("form"));
+
+  //verify if all attributes name=location of checkboxes was checked
+  if (!data.has("location")) {
+    formData[5].setAttribute("data-error-visible", "true");
+  } else {
+    formData[5].setAttribute("data-error-visible", "false");
+  }
+
+  //verify if attribute name=checkbox1 was checked
+
+  if (!data.has("checkbox1")) {
+    formData[6].setAttribute("data-error-visible", "true");
+  } else {
+    formData[6].setAttribute("data-error-visible", "false");
+  }
+
   if (
-    validName(input.first.value) &&
-    validName(input.last.value) &&
-    validEmail(input.email.value) &&
-    validBirthdate(input.birthdate.value) &&
-    //check if one location value was checked
-    input.location.value &&
-    //check if term and condition was checked
-    input.checkbox1.checked
+    formData[0].dataset.errorVisible === "false" &&
+    formData[1].dataset.errorVisible === "false" &&
+    formData[2].dataset.errorVisible === "false" &&
+    formData[3].dataset.errorVisible === "false" &&
+    formData[4].dataset.errorVisible === "false" &&
+    formData[5].dataset.errorVisible === "false" &&
+    formData[6].dataset.errorVisible === "false"
   ) {
     //Registration is valid, function registration reset form, close form modal and thanks modal open
     registration();
-  } else {
-    formData[6].setAttribute(
-      "data-error",
-      "Veuillez renseigner tous les champs et accepter les conditions d'utilisation."
-    );
-    formData[6].setAttribute("data-error-visible", "true");
   }
 }

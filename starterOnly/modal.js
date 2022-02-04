@@ -137,7 +137,7 @@ input.quantity.addEventListener("input", function () {
 function validate() {
   let data = new FormData(document.querySelector("form"));
 
-  //verify if all attributes name=location of checkboxes was checked
+  //verify if one of attributes name=location of checkboxes was checked
   if (!data.has("location")) {
     formData[5].setAttribute("data-error-visible", "true");
   } else {
@@ -153,6 +153,7 @@ function validate() {
   }
 
   if (
+    //If all fields have no error message
     formData[0].dataset.errorVisible === "false" &&
     formData[1].dataset.errorVisible === "false" &&
     formData[2].dataset.errorVisible === "false" &&

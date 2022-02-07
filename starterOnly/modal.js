@@ -89,6 +89,7 @@ input.email.addEventListener("input", function () {
     return false;
   } else {
     formData[2].setAttribute("data-error-visible", "false");
+    formData[2].setAttribute("data-error", "");
     return true;
   }
 });
@@ -134,6 +135,7 @@ input.quantity.addEventListener("input", function () {
 });
 
 //********Function when click on button "c'est parti!"******
+
 function validate() {
   let data = new FormData(document.querySelector("form"));
 
@@ -145,7 +147,6 @@ function validate() {
   }
 
   //verify if attribute name=checkbox1 was checked
-
   if (!data.has("checkbox1")) {
     formData[6].setAttribute("data-error-visible", "true");
   } else {

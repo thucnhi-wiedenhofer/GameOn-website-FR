@@ -50,49 +50,13 @@ function registration() {
 let input = document.querySelector("form");
 
 //verify if name has min 2 characters and no numeric value
-function validName(text) {
-  return /^[a-zA-Zéèàê' -]{2,}$/.test(text);
+function validName(text, index) {
+  if (text.length < 2 || !/^[a-zA-Zéèàê' -]{2,}$/.test(text)) {
+    formData[index].setAttribute("data-error-visible", "true");
+  } else {
+    formData[index].setAttribute("data-error-visible", "false");
+  }
 }
-
-//********Check firstname field******
-input.first.addEventListener("input", function () {
-  if (!validName(input.first.value)) {
-    formData[0].setAttribute("data-error-visible", "true");
-    return false;
-  } else {
-    formData[0].setAttribute("data-error-visible", "false");
-    return true;
-  }
-});
-
-//********Check lastname field******
-input.last.addEventListener("input", function () {
-  if (!validName(input.last.value)) {
-    formData[1].setAttribute("data-error-visible", "true");
-    return false;
-  } else {
-    formData[1].setAttribute("data-error-visible", "false");
-    return true;
-  }
-});
-
-//********Check email field******
-input.email.addEventListener("input", function () {
-  //verify if email field is not empty
-  if (input.email.value === "") {
-    formData[2].setAttribute("data-error", "le champs est vide");
-    formData[2].setAttribute("data-error-visible", "true");
-    return false;
-    //verify if email is valid
-  } else if (!validEmail(input.email.value)) {
-    formData[2].setAttribute("data-error-visible", "true");
-    return false;
-  } else {
-    formData[2].setAttribute("data-error-visible", "false");
-    formData[2].setAttribute("data-error", "");
-    return true;
-  }
-});
 
 //regex verify if this is an email
 function validEmail(email) {
@@ -101,18 +65,7 @@ function validEmail(email) {
   );
 }
 
-//********Check birthdate field******
-input.birthdate.addEventListener("change", function () {
-  //verify if birthdate is passed
-  if (!validBirthdate(input.birthdate.value)) {
-    formData[3].setAttribute("data-error-visible", "true");
-    return false;
-  } else {
-    formData[3].setAttribute("data-error-visible", "false");
-    return true;
-  }
-});
-
+// verify if birthdate is passed
 function validBirthdate(birthdate) {
   const date = new Date(input.birthdate.value);
   if (date.getTime() < Date.now()) {
@@ -122,22 +75,37 @@ function validBirthdate(birthdate) {
   }
 }
 
-//********Check quantity field******
-input.quantity.addEventListener("input", function () {
-  //verify if quantity field is not empty
-  if (input.quantity.value === "") {
-    formData[4].setAttribute("data-error-visible", "true");
-    return false;
-  } else {
-    formData[4].setAttribute("data-error-visible", "false");
-    return true;
-  }
-});
-
 //********Function when click on button "c'est parti!"******
 
 function validate() {
   let data = new FormData(document.querySelector("form"));
+
+  //********Check firstname field******
+  validName(input.first.value, 0);
+
+  //********Check lastname field******
+  validName(input.last.value, 1);
+
+  //********Check email field******
+  if (input.email.value === "" || !validEmail(input.email.value)) {
+    formData[2].setAttribute("data-error-visible", "true");
+  } else {
+    formData[2].setAttribute("data-error-visible", "false");
+  }
+
+  //********Check birthdate field******
+  if (input.birthdate.value === "" || !validBirthdate(input.birthdate.value)) {
+    formData[3].setAttribute("data-error-visible", "true");
+  } else {
+    formData[3].setAttribute("data-error-visible", "false");
+  }
+
+  //********Check quantity field******
+  if (input.quantity.value === "") {
+    formData[4].setAttribute("data-error-visible", "true");
+  } else {
+    formData[4].setAttribute("data-error-visible", "false");
+  }
 
   //verify if one of attributes name=location of checkboxes was checked
   if (!data.has("location")) {

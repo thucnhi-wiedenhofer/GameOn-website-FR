@@ -15,6 +15,7 @@ const closeModal = document.querySelectorAll(".close");
 const closeBtn = document.querySelector(".end");
 const submit = document.querySelector(".btn-submit");
 const modalThanks = document.querySelector(".thanks");
+const body = document.querySelector("body");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -22,6 +23,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
+  body.style.overflow = "hidden"; // prevent scroll bar body
 }
 
 // close modal when you click on span close
@@ -42,6 +44,7 @@ function closeWindow() {
 function registration() {
   input.reset();
   modalThanks.style.display = "block";
+  body.style.overflow = "hidden"; // prevent scroll bar body
   modalbg.style.display = "none";
 }
 
@@ -51,7 +54,7 @@ let input = document.querySelector("form");
 
 //verify if name has min 2 characters and no numeric value
 function validName(text, index) {
-  if (text.length < 2 || !/^[a-zA-Zéèàê' -]{2,}$/.test(text)) {
+  if (text.length < 2 || !/^[a-zA-Zéèàê][a-zA-Zéèàê' -]+$/.test(text)) {
     formData[index].setAttribute("data-error-visible", "true");
   } else {
     formData[index].setAttribute("data-error-visible", "false");
